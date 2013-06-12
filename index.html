@@ -191,69 +191,86 @@ pre .tex .formula {
 
 <p>Mount the engine in your routes file, as follows:</p>
 
-<pre><code class="ruby"># config/routes.rb
-mount Judge::Engine =&gt; &apos;/judge&apos;</code></pre>
+<p><code>ruby
+# config/routes.rb
+mount Judge::Engine =&gt; '/judge'
+</code></p>
 
 <p>Judge makes three JavaScript files available. You'll always need <em>judge.js</em> and <em>underscore.js</em>, whereas <em>json2.js</em> is only needed in older browsers. Add the following lines to <em>application.js</em>:</p>
 
-<pre><code>//= require underscore
+<p><code>
+//= require underscore
 //= require json2
-//= require judge</code></pre>
+//= require judge
+</code></p>
 
 <h3 id="withoutassetpipeline">Without asset pipeline</h3>
 
 <p>Add <code>judge</code> to your Gemfile and run <code>bundle install</code>. Then run</p>
 
-<pre><code>$ rails generate judge:install path/to/your/js/dir
-</code></pre>
+<p><code>bash
+$ rails generate judge:install path/to/your/js/dir
+</code></p>
 
 <p>to copy <em>judge.js</em> to your application. There are <strong>--json2</strong> and <strong>--underscore</strong> options to copy the dependencies too.</p>
 
 <p>Mount the engine in your routes file, as follows:</p>
 
-<pre><code class="ruby"># config/routes.rb
-mount Judge::Engine =&gt; &apos;/judge&apos;</code></pre>
+<p><code>ruby
+# config/routes.rb
+mount Judge::Engine =&gt; '/judge'
+</code></p>
 
 <h2 id="gettingstarted">Getting started</h2>
 
 <p>Add a simple validation to your model.</p>
 
-<pre><code class="ruby">class Post &lt; ActiveRecord::Base
+<p><code>ruby
+class Post &lt; ActiveRecord::Base
   validates :title, :presence =&gt; true
-end</code></pre>
+end
+</code></p>
 
 <p>Make sure your form uses the Judge::FormBuilder and add the :validate option to the field.</p>
 
-<pre><code class="ruby">form_for(@post, :builder =&gt; Judge::FormBuilder) do |f|
+<p><code>ruby
+form_for(@post, :builder =&gt; Judge::FormBuilder) do |f|
   f.text_field :title, :validate =&gt; true
-end</code></pre>
+end
+</code></p>
 
 <p>On the client side, you can now validate the title input.</p>
 
-<pre><code class="javascript">judge.validate(document.getElementById(&apos;post_title&apos;), {
+<p><code>javascript
+judge.validate(document.getElementById('post_title'), {
   valid: function(element) {
-    element.style.border = &apos;1px solid green&apos;;
+    element.style.border = '1px solid green';
   },
   invalid: function(element, messages) {
-    element.style.border = &apos;1px solid red&apos;;
-    alert(messages.join(&apos;,&apos;));
+    element.style.border = '1px solid red';
+    alert(messages.join(','));
   }
-});</code></pre>
+});
+</code></p>
 
 <h2 id="judge::formbuilder">Judge::FormBuilder</h2>
 
 <p>You can use any of the methods from the standard ActionView::Helpers::FormBuilder – just add <code>:validate =&gt; true</code> to the options hash.</p>
 
-<pre><code class="ruby">f.date_select :birthday, :validate =&gt; true</code></pre>
+<p><code>ruby
+f.date_select :birthday, :validate =&gt; true
+</code></p>
 
 <p>If you need to use Judge in conjunction with your own custom <code>FormBuilder</code> methods, make sure your <code>FormBuilder</code> inherits from <code>Judge::FormBuilder</code> and use the <code>#add_validate_attr!</code> helper.</p>
 
-<pre><code class="ruby">class MyFormBuilder &lt; Judge::FormBuilder
+<p><code>ruby
+class MyFormBuilder &lt; Judge::FormBuilder
   def fancy_text_field(method, options = {})
     add_validate_attr!(self.object, method, options)
     # do your stuff here
   end
-end</code></pre>
+end
+</code></p>
 
 <h2 id="availablevalidators">Available validators</h2>
 
@@ -280,43 +297,55 @@ end</code></pre>
 
 <p>Since this effectively means adding an open, queryable endpoint to your application, Judge is cautious and requires you to be explicit about which attributes from which models you would like to expose for validation via XHR. Allowed attributes are configurable as in the following example. Note that you are only required to do this for <code>uniqueness</code> and any other validators you write that make requests to the server.</p>
 
-<pre><code class="ruby"># config/initializers/judge.rb
+<p><code>ruby
+# config/initializers/judge.rb
 Judge.configure do
   expose Post, :title, :body
-end</code></pre>
+end
+</code></p>
 
 <h2 id="mountingtheengineatadifferentlocation">Mounting the engine at a different location</h2>
 
 <p>You can choose a path other than <code>'/judge'</code> if you need to; just make sure to set this on the client side too:</p>
 
-<pre><code class="ruby"># config/routes.rb
-mount Judge::Engine =&gt; &apos;/whatever&apos;</code></pre>
+<p><code>ruby
+# config/routes.rb
+mount Judge::Engine =&gt; '/whatever'
+</code></p>
 
-<pre><code class="javascript">judge.enginePath = &apos;/whatever&apos;;</code></pre>
+<p><code>javascript
+judge.enginePath = '/whatever';
+</code></p>
 
 <h2 id="writingyourowneachvalidator">Writing your own <code>EachValidator</code></h2>
 
 <p>If you write your own <code>ActiveModel::EachValidator</code>, Judge provides a way to ensure that your I18n error messages are available on the client side. Simply pass to <code>uses_messages</code> any number of message keys and Judge will look up the translated messages. Let's run through an example.</p>
 
-<pre><code class="ruby">class FooValidator &lt; ActiveModel::EachValidator
-  uses_messages :not_foo
+<p>```ruby
+class FooValidator &lt; ActiveModel::EachValidator
+ uses_messages :not_foo</p>
 
-  def validate_each(record, attribute, value)
-    unless value == &apos;foo&apos;
-      record.errors.add(:title, :not_foo)
-    end
-  end
-end</code></pre>
+<p>def validate_each(record, attribute, value)
+ unless value == 'foo'
+ record.errors.add(:title, :not_foo)
+ end
+ end
+end
+```</p>
 
 <p>We'll use the validator in the example above to validate the title attribute of a Post object:</p>
 
-<pre><code class="ruby">class Post &lt; ActiveRecord::Base
+<p><code>ruby
+class Post &lt; ActiveRecord::Base
   validates :title, :foo =&gt; true
-end</code></pre>
+end
+</code></p>
 
-<pre><code class="ruby">form_for(@post, :builder =&gt; Judge::FormBuilder) do |f|
+<p><code>ruby
+form_for(@post, :builder =&gt; Judge::FormBuilder) do |f|
   f.text_field :title, :validate =&gt; true
-end</code></pre>
+end
+</code></p>
 
 <p>Judge will look for the <code>not_foo</code> message at
 <code>activerecord.errors.models.post.attributes.title.not_foo</code>
@@ -324,61 +353,71 @@ first and then onwards down the <a href="http://guides.rubyonrails.org/i18n.html
 
 <p>We then need to add our own validator method to the <code>judge.eachValidators</code> object on the client side:</p>
 
-<pre><code class="javascript">judge.eachValidators.foo = function(options, messages) {
+<p><code>javascript
+judge.eachValidators.foo = function(options, messages) {
   var errorMessages = [];
-  // &apos;this&apos; refers to the form element
-  if (this.value !== &apos;foo&apos;) {
+  // 'this' refers to the form element
+  if (this.value !== 'foo') {
     errorMessages.push(messages.not_foo);
   }
   return new judge.Validation(errorMessages);
-};</code></pre>
+};
+</code></p>
 
 <h2 id="judge.validation"><code>judge.Validation</code></h2>
 
 <p>All client side validators must return a <code>Validation</code> – an object that can exist in three different states: <em>valid</em>, <em>invalid</em> or <em>pending</em>. If your validator function is synchronous, you can return a closed <code>Validation</code> simply by passing an array of error messages to the constructor.</p>
 
-<pre><code class="javascript">new judge.Validation([]);
-  // =&gt; empty array, this Validation is &apos;valid&apos;
-new judge.Validation([&apos;must not be blank&apos;]);
-  // =&gt; array has messages, this Validation is &apos;invalid&apos;</code></pre>
+<p><code>javascript
+new judge.Validation([]);
+  // =&gt; empty array, this Validation is 'valid'
+new judge.Validation(['must not be blank']);
+  // =&gt; array has messages, this Validation is 'invalid'
+</code></p>
 
 <p>The <em>pending</em> state is provided for asynchronous validation; a <code>Validation</code> object we will close some time in the future. Let's look at an example, using jQuery's popular <code>ajax</code> function:</p>
 
-<pre><code class="javascript">judge.eachValidators.bar = function() {
-  // create a &apos;pending&apos; validation
+<p><code>javascript
+judge.eachValidators.bar = function() {
+  // create a 'pending' validation
   var validation = new judge.Validation();
-  $.ajax(&apos;/bar-checking-service&apos;).done(function(messages) {
+  $.ajax('/bar-checking-service').done(function(messages) {
     // You can close a Validation with either an array
     // or a string that represents a JSON array
     validation.close(messages);
   });
   return validation;
-};</code></pre>
+};
+</code></p>
 
 <p>There are helper functions, <code>judge.pending()</code> and <code>judge.closed()</code> for creating a new <code>Validation</code> too.</p>
 
-<pre><code class="javascript">judge.eachValidators.bar = function() {
-  return judge.closed([&apos;not valid&apos;]);
-};
-
+<p>```javascript
 judge.eachValidators.bar = function() {
-  var validation = new judge.pending();
-  doAsyncStuff(function(messages) {
-    validation.close(messages);
-  });
-  return validation;
-};</code></pre>
+ return judge.closed(['not valid']);
+};</p>
+
+<p>judge.eachValidators.bar = function() {
+ var validation = new judge.pending();
+ doAsyncStuff(function(messages) {
+ validation.close(messages);
+ });
+ return validation;
+};
+```</p>
 
 <p>In the unlikely event that you don't already use a library with AJAX capability, a basic function is provided for making GET requests as follows:</p>
 
-<pre><code class="javascript">judge.get(&apos;/something&apos;, {
+<p><code>javascript
+judge.get('/something', {
   success: function(status, headers, text) {
     // status code 20x
   },
   error: function(status, headers, text) {
     // any other status code
   }
-});</code></pre>
+});
+</code></p>
 
 <h2 id="judgeextensions">Judge extensions</h2>
 
@@ -388,25 +427,33 @@ judge.eachValidators.bar = function() {
 
 <p><a href="https://github.com/joecorcoran/judge-formtastic">https://github.com/joecorcoran/judge-formtastic</a></p>
 
-<pre><code class="ruby">gem &apos;judge-formtastic&apos;</code></pre>
+<p><code>ruby
+gem 'judge-formtastic'
+</code></p>
 
-<pre><code class="ruby">semantic_form_for(@user) do |f|
+<p><code>ruby
+semantic_form_for(@user) do |f|
   f.input :name, :validate =&gt; true
-end</code></pre>
+end
+</code></p>
 
 <h3 id="simpleform">SimpleForm</h3>
 
 <p><a href="https://github.com/joecorcoran/judge-simple_form">https://github.com/joecorcoran/judge-simple_form</a></p>
 
-<pre><code class="ruby">gem &apos;judge-simple_form&apos;</code></pre>
+<p><code>ruby
+gem 'judge-simple_form'
+</code></p>
 
-<pre><code class="ruby">simple_form_for(@user) do |f|
+<p><code>ruby
+simple_form_for(@user) do |f|
   f.input :name, :validate =&gt; true
-end</code></pre>
+end
+</code></p>
 
 <h2 id="credit">Credit</h2>
 
-<p>Created by <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#106;&#x6f;&#x65;&#99;&#111;&#x72;&#99;&#111;&#114;&#x61;&#x6e;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#74;&#x6f;&#101; &#x43;&#x6f;&#x72;&#x63;&#111;&#114;&#97;&#110;</a>, whose <a href="http://blog.joecorcoran.co.uk">blog</a> and <a href="http://twitter.com/josephcorcoran">tweets</a> you can read on the world wide internet. Thank you to every user, email corresponder and pull request submitter.</p>
+<p>Created by <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x6a;&#x6f;&#101;&#x63;&#111;&#114;&#99;&#x6f;&#x72;&#x61;&#110;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#74;&#111;&#x65; &#x43;&#111;&#114;&#99;&#111;&#114;&#x61;&#110;</a>, whose <a href="http://blog.joecorcoran.co.uk">blog</a> and <a href="http://twitter.com/josephcorcoran">tweets</a> you can read on the world wide internet. Thank you to every user, email corresponder and pull request submitter.</p>
 
 <p><a href="https://github.com/joecorcoran/judge/blob/master/LICENSE.txt">Released under an MIT license</a>.</p>
 

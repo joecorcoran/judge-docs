@@ -6,411 +6,160 @@
   <title>README</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-/*
- * This document has been created with Marked.app <http://markedapp.com>.
- * Copyright 2011 Brett Terpstra
- * ---------------------------------------------------------------------------
- * Please leave this notice in place, along with any additional credits below.
- *
- * Byword.css theme is based on Byword.app <http://bywordapp.com>
- * Authors: @brunodecarvalho, @jpedroso, @rcabaco
- * Copyright 2011 Metaclassy, Lda. <http://metaclassy.com>
- */
- 
-html {
-	font-size: 62.5%; /* base font-size: 10px */
-}
+/* 
+   This document has been created with Marked.app <http://markedapp.com>, Copyright 2011 Brett Terpstra
+   Please leave this notice in place, along with any additional credits below.
+   ---------------------------------------------------------------
+   Title: Swiss
+   Author: Brett Terpstra
+   Description: Clean, Swiss typography with no frills.
+*/
+body{-webkit-font-smoothing:antialiased;font:normal .8764em/1.5em Arial,Verdana,sans-serif;margin:0}html>body{font-size:13px}li{font-size:110%}li li{font-size:100%}li p{font-size:100%;margin:.5em 0}h1{color:#000;font-size:2.2857em;line-height:.6563em;margin:.6563em 0}h2{color:#111;font-size:1.7143em;line-height:.875em;margin:.875em 0}h3{color:#111;font-size:1.5em;line-height:1em;margin:1em 0}h4{color:#111;font-size:1.2857em;line-height:1.1667em;margin:1.1667em 0}h5{color:#111;font-size:1.15em;line-height:1.3em;margin:1.3em 0}h6{font-size:1em;line-height:1.5em;margin:1.5em 0}body,p,td,div{color:#111;font-family:"Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;word-wrap:break-word}h1,h2,h3,h4,h5,h6{line-height:1.5em}a{-webkit-transition:color .2s ease-in-out;color:#0d6ea1;text-decoration:none}a:hover{color:#3593d9}.footnote{color:#0d6ea1;font-size:.8em;vertical-align:super}#wrapper img{max-width:100%;height:auto}dd{margin-bottom:1em}li>p:first-child{margin:0}ul ul,ul ol{margin-bottom:.4em}caption,col,colgroup,table,tbody,td,tfoot,th,thead,tr{border-spacing:0}table{border:1px solid rgba(0,0,0,0.25);border-collapse:collapse;display:table;empty-cells:hide;margin:-1px 0 23px;padding:0;table-layout:fixed}caption{display:table-caption;font-weight:700}col{display:table-column}colgroup{display:table-column-group}tbody{display:table-row-group}tfoot{display:table-footer-group}thead{display:table-header-group}td,th{display:table-cell}tr{display:table-row}table th,table td{font-size:1.1em;line-height:23px;padding:0 1em}table thead{background:rgba(0,0,0,0.15);border:1px solid rgba(0,0,0,0.15);border-bottom:1px solid rgba(0,0,0,0.2)}table tbody{background:rgba(0,0,0,0.05)}table tfoot{background:rgba(0,0,0,0.15);border:1px solid rgba(0,0,0,0.15);border-top:1px solid rgba(0,0,0,0.2)}figure{display:inline-block;margin-bottom:1.2em;position:relative;margin:1em 0}figcaption{font-style:italic;text-align:center;background:rgba(0,0,0,.9);color:rgba(255,255,255,1);position:absolute;left:0;bottom:-24px;width:98%;padding:1%;-webkit-transition:all .2s ease-in-out}.poetry pre{display:block;font-family:Georgia,Garamond,serif!important;font-size:110%!important;font-style:italic;line-height:1.6em;margin-left:1em}.poetry pre code{font-family:Georgia,Garamond,serif!important}blockquote p{font-size:110%;font-style:italic;line-height:1.6em}sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;position:relative;vertical-align:super}sub{vertical-align:sub;top:-1px}p,h5{font-size:1.1429em;line-height:1.3125em;margin:1.3125em 0}dt,th{font-weight:700}table tr:nth-child(odd),table th:nth-child(odd),table td:nth-child(odd){background:rgba(255,255,255,0.06)}table tr:nth-child(even),table td:nth-child(even){background:rgba(0,0,0,0.06)}@media print{body{overflow:auto}img,pre,blockquote,table,figure,p{page-break-inside:avoid}#wrapper{background:#fff;color:#303030;font-size:85%;padding:10px;position:relative;text-indent:0}}@media screen{.inverted #wrapper,.inverted{background:rgba(37,42,42,1)}.inverted hr{border-color:rgba(51,63,64,1)!important}.inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted pre,.inverted code,.inverted th,.inverted .math,.inverted caption,.inverted dd,.inverted dt{color:#eee!important}.inverted table tr:nth-child(odd),.inverted table th:nth-child(odd),.inverted table td:nth-child(odd){background:0}.inverted a{color:rgba(172,209,213,1)}#wrapper{padding:20px}::selection{background:rgba(157,193,200,.5)}h1::selection{background-color:rgba(45,156,208,.3)}h2::selection{background-color:rgba(90,182,224,.3)}h3::selection,h4::selection,h5::selection,h6::selection,li::selection,ol::selection{background-color:rgba(133,201,232,.3)}code::selection{background-color:rgba(0,0,0,.7);color:#eee}code span::selection{background-color:rgba(0,0,0,.7)!important;color:#eee!important}a::selection{background-color:rgba(255,230,102,.2)}.inverted a::selection{background-color:rgba(255,230,102,.6)}td::selection,th::selection,caption::selection{background-color:rgba(180,237,95,.5)}}/*
 
-body {
-    background-color: #f2f2f2;
-    color: #3c3c3c;
-    
-    /* Change font size below */
-	font-size: 1.7em; 
-	line-height: 1.4em;
-	
-	/* Change font below */
-
-	/* Sans-serif fonts */	
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	
-	/* Serif fonts */
-	/*
-	font-family: "Cochin", "Baskerville", "Georgia", serif;
-	-webkit-font-smoothing: subpixel-antialiased;
-	*/
-	
-	/* Monospaced fonts */
-	/*
-	font-family: "Courier New", Menlo, Monaco, mono;
-	-webkit-font-smoothing: antialiased;
-	*/
-}
-a {
-    color: #308bd8;
-    text-decoration:none;
-}
-a:hover {
-    text-decoration: underline;
-}
-/* headings */
-h1, h2 {
-    line-height:1.2em;
-    margin-top:32px;
-    margin-bottom:12px;
-}
-h1:first-child {
-    margin-top:0;
-}
-h3, h4, h5, h6 {
-    margin-top:12px;
-    margin-bottom:8px;
-}
-h5, h6 {
-    font-size:0.9em;
-    line-height:1.0em;
-}
-/* end of headings */
-p {
-    margin:0 0 24px 0;
-}
-p:last-child {
-    margin:0;
-}
-#wrapper hr {
-    width: 100%;
-    margin: 3em auto;
-    border: 0;
-    color: #eee;
-    background-color: #ccc;
-    height: 1px;
-    -webkit-box-shadow:0px 1px 0px rgba(255, 255, 255, 0.75);
-}
-/* lists */
-ol {
-    list-style: outside decimal;
-}
-ul {
-    list-style: outside disc;
-}
-ol, ul {
-    padding-left:0;
-    margin-bottom:24px;
-}
-ol li {
-    margin-left:28px;
-}
-ul li {
-    margin-bottom:8px;
-    margin-left:16px;
-}
-ol:last-child, ul:last-child {
-    margin:0;
-}
-li > ol, li > ul {
-    padding-left:12px;
-}
-dl {
-    margin-bottom:24px;
-}
-dl dt {
-    font-weight:bold;
-    margin-bottom:8px;
-}
-dl dd {
-    margin-left:0;
-    margin-bottom:12px;
-}
-dl dd:last-child, dl:last-child {
-    margin-bottom:0;
-}
-/* end of lists */
-pre {
-    white-space: pre-wrap;
-    width: 96%;
-    margin-bottom: 24px;
-    overflow: hidden;
-    background-color: #eee;
-}
-code {
-    white-space: nowrap;
-    font-size: 1.1em;
-    padding: 2px;
-    -webkit-border-radius: 3px;
-    background-color: #eee;
-    border: 1px solid #ddd;
-}
-pre code {
-    white-space: pre-wrap;
-    border: none;
-    padding: 0;
-    background-color: transparent;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
-blockquote {
-    margin-left: 0;
-    margin-right: 0;
-    width: 96%;
-    padding: 0 10px;
-    border-left: 3px solid #ddd;
-    color: #777;
-}
-table {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 24px;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-spacing: 0;
-}
-table th {
-    padding: 3px 10px;
-    background-color: #eee;
-    border-top: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-}
-table tr {
-}
-table td {
-    padding: 3px 10px;
-    border-top: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-}
-caption {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-figure {
-    display: block;
-    text-align: center;
-}
-#wrapper img {
-    border: none;
-    display: block;
-    max-width: 100%;
-}
-figcaption {
-    font-size: 0.8em;
-    font-style: italic;
-}
-mark {
-    background: #fefec0;
-    padding:1px 3px;
-}
-
-
-/* classes */
-
-.markdowncitation {
-}
-.footnote {
-    font-size: 0.8em;
-    vertical-align: super;
-}
-.footnotes ol {
-    font-weight: bold;
-}
-.footnotes ol li p {
-    font-weight: normal;
-}
-
-/* custom formatting classes */
-
-.shadow {
-    -webkit-box-shadow: 0 2px 4px #999;
-}
-
-.source {
-    text-align: center;
-    font-size: 0.8em;
-    color: #777;
-    margin: -40px;
-}
-
-@media screen {
-	.inverted, .inverted #wrapper {
-	    background-color: #1a1a1a !important;
-	    color: #bebebe !important;
-	    
-	   	/* SANS-SERIF */	
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-		-webkit-font-smoothing: antialiased !important;
-		
-		/* SERIF */
-		/*
-		font-family: "Cochin", "Baskerville", "Georgia", serif !important;
-		-webkit-font-smoothing: subpixel-antialiased !important;
-		*/
-		/* MONO */
-		/*
-		font-family: "Courier", mono !important;
-		-webkit-font-smoothing: antialiased !important;
-		*/
-	}
-	.inverted a {
-	    color: #308bd8 !important;
-	}
-	.inverted hr {
-	    color: #666 !important;
-	    border: 0;
-	    background-color: #666 !important;
-	    -webkit-box-shadow: none !important;
-	}
-	.inverted pre {
-	    background-color: #222 !important;
-	    border-color: #3c3c3c !important;
-	}
-	.inverted code {
-	    background-color: #222 !important;
-	    border-color: #3c3c3c !important;
-	}
-	.inverted blockquote {
-	    border-color: #333 !important;
-	    color: #999 !important;
-	}
-	.inverted table {
-	    border-color: #3c3c3c !important;
-	}
-	.inverted table th {
-	    background-color: #222 !important;
-	    border-color: #3c3c3c !important;
-	}
-	.inverted table td {
-	    border-color: #3c3c3c !important;
-	}
-	.inverted mark {
-	    background: #bc990b !important;
-	    color:#000 !important;
-	}
-    .inverted .shadow { -webkit-box-shadow: 0 2px 4px #000 !important; }
-	#wrapper {
-        background: transparent;
-        margin: 40px;
-    }
-}
-
-/* Printing support */
-@media print {
-	body {
-		overflow: auto;
-	}
-    img, pre, blockquote, table, figure {
-        page-break-inside: avoid;
-    }
-    pre, code {
-		border: none !important;
-	}
-	#wrapper {
-        background: #fff;
-        position: relative;
-        text-indent: 0px;
-        padding: 10px;
-        font-size:85%;
-    }
-    .footnotes {
-        page-break-before: always;
-    }
-}/*
-
-Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
 
 pre code {
   display: block; padding: 0.5em;
-  background: #002b36; color: #839496;
+  color: #000;
+  background: #f8f8ff
 }
 
 pre .comment,
 pre .template_comment,
 pre .diff .header,
-pre .doctype,
-pre .lisp .string,
 pre .javadoc {
-  color: #586e75;
-  font-style: italic;
+  color: #998;
+  font-style: italic
 }
 
 pre .keyword,
 pre .css .rule .keyword,
 pre .winutils,
 pre .javascript .title,
-pre .method,
-pre .addition,
-pre .css .tag,
-pre .lisp .title {
-  color: #859900;
+pre .lisp .title,
+pre .subst {
+  color: #000;
+  font-weight: bold
+}
+
+pre .ruby .keyword {
+  font-weight: normal
 }
 
 pre .number,
-pre .command,
+pre .hexcolor {
+  color: #40a070
+}
+
 pre .string,
 pre .tag .value,
 pre .phpdoc,
-pre .tex .formula,
-pre .regexp,
-pre .hexcolor {
-  color: #2aa198;
+pre .tex .formula {
+  color: #d14
 }
 
 pre .title,
-pre .localvars,
-pre .function .title,
-pre .chunk,
-pre .decorator,
-pre .builtin,
-pre .built_in,
-pre .lisp .title,
-pre .identifier,
-pre .title .keymethods,
 pre .id {
-  color: #268bd2;
+  color: #900;
+  font-weight: bold
 }
 
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .label,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .class .params {
+	color: #000;
+}
+
+pre .tag,
 pre .tag .title,
 pre .rules .property,
 pre .django .tag .keyword {
-  font-weight: bold;
+  color: #000080;
+  font-weight: normal
 }
 
 pre .attribute,
 pre .variable,
 pre .instancevar,
-pre .lisp .body,
-pre .smalltalk .number,
-pre .constant,
-pre .class .title,
-pre .parent,
-pre .haskell .label {
-  color: #b58900;
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
+pre .lisp .keyword,
+pre .tex .special,
+pre .input_number {
+  color: #0086b3
+}
+
+pre .ruby .identifier .keyword,
+pre .ruby .identifier .keymethods {
+  color: #0086b3;
+}
+
+pre .ruby .constant {
+  color: #008080;
+}
+
+pre .builtin,
+pre .built_in,
+pre .lisp .title {
+  color: #0086b3
 }
 
 pre .preprocessor,
 pre .pi,
+pre .doctype,
 pre .shebang,
-pre .symbol,
-pre .diff .change,
-pre .special,
-pre .keymethods,
-pre .attr_selector,
-pre .important,
-pre .subst,
 pre .cdata {
-  color: #cb4b16;
+  color: #999;
+  font-weight: bold
 }
 
 pre .deletion {
-  color: #dc322f;
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
 }
 
 pre .tex .formula {
-  background: #073642;
+  opacity: 0.5;
 }
-
 </style>
 <style>#wrapper { max-width:700px; margin:0 auto }</style>
 </head>
@@ -426,7 +175,7 @@ pre .tex .formula {
 
 <h2 id="rationale">Rationale</h2>
 
-<p>Whenever we need to give the user instant feedback on their form data, it&#8217;s common to write some JavaScript to test form element values. Since whatever code we write to manage our data integrity in Ruby has to be copied as closely as possible in JavaScript, we end up with some very unsatisfying duplication of application logic.</p>
+<p>Whenever we need to give the user instant feedback on their form data, it's common to write some JavaScript to test form element values. Since whatever code we write to manage our data integrity in Ruby has to be copied as closely as possible in JavaScript, we end up with some very unsatisfying duplication of application logic.</p>
 
 <p>In many cases it would be simpler to safely expose the validation information from our models to the client – this is where Judge steps in.</p>
 
@@ -445,7 +194,7 @@ pre .tex .formula {
 <pre><code class="ruby"># config/routes.rb
 mount Judge::Engine =&gt; &apos;/judge&apos;</code></pre>
 
-<p>Judge makes three JavaScript files available. You&#8217;ll always need <em>judge.js</em> and <em>underscore.js</em>, whereas <em>json2.js</em> is only needed in older browsers. Add the following lines to <em>application.js</em>:</p>
+<p>Judge makes three JavaScript files available. You'll always need <em>judge.js</em> and <em>underscore.js</em>, whereas <em>json2.js</em> is only needed in older browsers. Add the following lines to <em>application.js</em>:</p>
 
 <pre><code>//= require underscore
 //= require json2
@@ -458,7 +207,7 @@ mount Judge::Engine =&gt; &apos;/judge&apos;</code></pre>
 <pre><code>$ rails generate judge:install path/to/your/js/dir
 </code></pre>
 
-<p>to copy <em>judge.js</em> to your application. There are <strong>&#8211;json2</strong> and <strong>&#8211;underscore</strong> options to copy the dependencies too.</p>
+<p>to copy <em>judge.js</em> to your application. There are <strong>--json2</strong> and <strong>--underscore</strong> options to copy the dependencies too.</p>
 
 <p>Mount the engine in your routes file, as follows:</p>
 
@@ -547,7 +296,7 @@ mount Judge::Engine =&gt; &apos;/whatever&apos;</code></pre>
 
 <h2 id="writingyourowneachvalidator">Writing your own <code>EachValidator</code></h2>
 
-<p>If you write your own <code>ActiveModel::EachValidator</code>, Judge provides a way to ensure that your I18n error messages are available on the client side. Simply pass to <code>uses_messages</code> any number of message keys and Judge will look up the translated messages. Let&#8217;s run through an example.</p>
+<p>If you write your own <code>ActiveModel::EachValidator</code>, Judge provides a way to ensure that your I18n error messages are available on the client side. Simply pass to <code>uses_messages</code> any number of message keys and Judge will look up the translated messages. Let's run through an example.</p>
 
 <pre><code class="ruby">class FooValidator &lt; ActiveModel::EachValidator
   uses_messages :not_foo
@@ -559,18 +308,18 @@ mount Judge::Engine =&gt; &apos;/whatever&apos;</code></pre>
   end
 end</code></pre>
 
-<p>We&#8217;ll use the validator in the example above to validate the title attribute of a Post object:</p>
+<p>We'll use the validator in the example above to validate the title attribute of a Post object:</p>
 
 <pre><code class="ruby">class Post &lt; ActiveRecord::Base
   validates :title, :foo =&gt; true
 end</code></pre>
 
 <pre><code class="ruby">form_for(@post, :builder =&gt; Judge::FormBuilder) do |f|
-  text_field :title, :validate =&gt; true
+  f.text_field :title, :validate =&gt; true
 end</code></pre>
 
 <p>Judge will look for the <code>not_foo</code> message at
-<em>activerecord.errors.models.post.attributes.title.not_foo</em>
+<code>activerecord.errors.models.post.attributes.title.not_foo</code>
 first and then onwards down the <a href="http://guides.rubyonrails.org/i18n.html#translations-for-active-record-models">Rails I18n lookup chain</a>.</p>
 
 <p>We then need to add our own validator method to the <code>judge.eachValidators</code> object on the client side:</p>
@@ -593,7 +342,7 @@ first and then onwards down the <a href="http://guides.rubyonrails.org/i18n.html
 new judge.Validation([&apos;must not be blank&apos;]);
   // =&gt; array has messages, this Validation is &apos;invalid&apos;</code></pre>
 
-<p>The <em>pending</em> state is provided for asynchronous validation; a <code>Validation</code> object we will close some time in the future. Let&#8217;s look at an example, using jQuery&#8217;s popular <code>ajax</code> function:</p>
+<p>The <em>pending</em> state is provided for asynchronous validation; a <code>Validation</code> object we will close some time in the future. Let's look at an example, using jQuery's popular <code>ajax</code> function:</p>
 
 <pre><code class="javascript">judge.eachValidators.bar = function() {
   // create a &apos;pending&apos; validation
@@ -620,7 +369,7 @@ judge.eachValidators.bar = function() {
   return validation;
 };</code></pre>
 
-<p>In the unlikely event that you don&#8217;t already use a library with AJAX capability, a basic function is provided for making GET requests as follows:</p>
+<p>In the unlikely event that you don't already use a library with AJAX capability, a basic function is provided for making GET requests as follows:</p>
 
 <pre><code class="javascript">judge.get(&apos;/something&apos;, {
   success: function(status, headers, text) {
@@ -657,7 +406,7 @@ end</code></pre>
 
 <h2 id="credit">Credit</h2>
 
-<p>Created by <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#106;&#x6f;&#101;&#99;&#111;&#114;&#99;&#111;&#114;&#x61;&#110;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x4a;&#x6f;&#101; &#x43;&#111;&#x72;&#99;&#111;&#114;&#97;&#110;</a>, whose <a href="http://blog.joecorcoran.co.uk">blog</a> and <a href="http://twitter.com/josephcorcoran">tweets</a> you can read on the world wide internet. Thank you to every user, email corresponder and pull request submitter.</p>
+<p>Created by <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#106;&#x6f;&#x65;&#99;&#111;&#x72;&#99;&#111;&#114;&#x61;&#x6e;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#74;&#x6f;&#101; &#x43;&#x6f;&#x72;&#x63;&#111;&#114;&#97;&#110;</a>, whose <a href="http://blog.joecorcoran.co.uk">blog</a> and <a href="http://twitter.com/josephcorcoran">tweets</a> you can read on the world wide internet. Thank you to every user, email corresponder and pull request submitter.</p>
 
 <p><a href="https://github.com/joecorcoran/judge/blob/master/LICENSE.txt">Released under an MIT license</a>.</p>
 
